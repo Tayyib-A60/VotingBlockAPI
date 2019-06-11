@@ -12032,11 +12032,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\User\\Desktop\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\VotingBlockAPI\\API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Users\\User\\Desktop\\API\\API.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\VotingBlockAPI\\API.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\User\\Desktop\\API\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\VotingBlockAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

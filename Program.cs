@@ -20,5 +20,12 @@ namespace API
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+                // .UseKestrel((context, options)) => {
+                //     var port = Environment.GetEnvironmentVariable("PORT");
+                //     if (!StringIsNullOrEmpty(port)) {
+                //         options.ListenAnyIP(int.Parse(port));
+                //     }
+
+                // };
     }
 }
