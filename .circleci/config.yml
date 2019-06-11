@@ -1,0 +1,18 @@
+version: 2
+jobs:
+ build:
+   machine: true
+   steps:
+     - checkout 
+
+     # build image
+     - run: |         
+         docker info
+         docker build -t aspnetapp -f Dockerfile .
+     # deploy the image
+     - run: |         
+         docker login --username=adesokantayyib@gmail.com --password=d9bd1c23-866d-4157-ab79-399db5fb279d registry.heroku.com
+         docker tag aspnetapp registry.heroku.com/votingblockapi/web
+         docker push registry.heroku.com/votingblockapi/web                
+         curl https://cli-assets.heroku.com/install.sh | sh
+         heroku container:release web -a votingblockapi
