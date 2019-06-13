@@ -82,11 +82,11 @@ namespace API
             {
                 app.UseHsts();
             }
+            app.UseCors("AllowAll");
             app.UseAuthentication();
             app.UseMvc();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
         }
     }
