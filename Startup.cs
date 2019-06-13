@@ -57,7 +57,7 @@ namespace API
                 var pgPort = Environment.GetEnvironmentVariable("Port");
                 var pgDatabase = Environment.GetEnvironmentVariable("Database");
 
-                var connStr = $"Host={pgHost};Port={pgPort};Username={pgUserId};Password={pgPassword};Database={pgDatabase},sslmode='Prefer';Trust Server Certificate='true'";
+                var connStr = $"Host={pgHost};Port={pgPort};Username={pgUserId};Password={pgPassword};Database={pgDatabase},sslmode=Prefer;Trust Server Certificate=true";
 
                 options.UseNpgsql(connStr);
             });
