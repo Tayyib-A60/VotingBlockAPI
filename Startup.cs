@@ -58,8 +58,8 @@ namespace API
                     connStr = Configuration.GetConnectionString("DefaultConnection");
                 } else {
                     // Heroku provides PostgreSQL connection URL via env variable
-                    var connUrl = Environment.GetEnvironmentVariable("HEROKU_POSTGRESQL_SILVER_URL");
-
+                    // var connUrl = Environment.GetEnvironmentVariable("HEROKU_POSTGRESQL_SILVER_URL");
+                    var connUrl = "postgres:/ptgircjbbmersp:a828509805c6dd3a78072d43290f4fb788d79763ec576f6c81e5113d047f996e@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/d8s09424j0fhla";
                     // Parse connection URL to connection string for Npgsql
                     connUrl = connUrl.Replace("postgres://", string.Empty);
 
