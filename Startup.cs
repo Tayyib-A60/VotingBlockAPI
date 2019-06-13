@@ -37,6 +37,16 @@ namespace API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IElectionRepository, ElectionRepository>();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder => {
+                    builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+                });
+            });
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddAutoMapper();
@@ -73,10 +83,10 @@ namespace API
                 app.UseHsts();
             }
             app.UseAuthentication();
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
+            app.UseMvc();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
         }
     }
