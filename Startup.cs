@@ -50,7 +50,18 @@ namespace API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddAutoMapper();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.AddDbContext<VotingDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<VotingDBContext>(options =>{
+                var pgUserId = Environment.GetEnvironmentVariable("User");
+                var pgPassword = Environment.GetEnvironmentVariable("Password");
+                var pgHost = Environment.GetEnvironmentVariable("Host");
+                var pgPort = Environment.GetEnvironmentVariable("Port");
+                var pgDatabase = Environment.GetEnvironmentVariable("Database");
+
+                var connStr = $"Server={pgHost};Port={pgPort};User Id={pgUserId};Password={pgPassword};Database={pgDatabase}";
+
+                options.UseNpgsql(connStr);
+            });
+            // options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             services.AddAuthentication(auth => {
