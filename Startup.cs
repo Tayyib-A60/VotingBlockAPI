@@ -27,6 +27,7 @@ namespace API
         {
             Configuration = configuration;
         }
+        readonly string mySpecificOrigin = "VotingBlockOrigin";
 
         public IConfiguration Configuration { get; }
 
@@ -39,12 +40,10 @@ namespace API
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAll", builder => {
-                    builder
-                    .AllowAnyOrigin()
-                    .AllowAnyMethod()
+                options.AddPolicy(mySpecificOrigin, builder => {
+                    builder.WithOrigins("https://votingblock.herokuapp.com")
                     .AllowAnyHeader()
-                    .AllowCredentials();
+                    .AllowAnyMethod();
                 });
             });
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -82,12 +81,12 @@ namespace API
             {
                 app.UseHsts();
             }
-            app.UseCors("AllowAll");
-            app.UseAuthentication();
+            app.UseCors(mySpecificOrigin);
+            app.UseHttpsRedirection();
             app.UseMvc();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseHttpsRedirection();
+            app.UseAuthentication();
         }
     }
 }
