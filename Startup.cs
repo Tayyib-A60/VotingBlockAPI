@@ -51,17 +51,32 @@ namespace API
             services.AddAutoMapper();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddDbContext<VotingDBContext>(options =>{
-                var pgUserId = Environment.GetEnvironmentVariable("User");
-                var pgPassword = Environment.GetEnvironmentVariable("Password");
-                var pgHost = Environment.GetEnvironmentVariable("Host");
-                var pgPort = Environment.GetEnvironmentVariable("Port");
-                var pgDatabase = Environment.GetEnvironmentVariable("Database");
+                
+                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                string connStr;
+                if (env == "Development") {
+                    connStr = Configuration.GetConnectionString("DefaultConnection");
+                } else {
+                    // Heroku provides PostgreSQL connection URL via env variable
+                    var connUrl = Environment.GetEnvironmentVariable("HEROKU_POSTGRESQL_SILVER_URL");
 
-                var connStr = $"Host={pgHost};Port={pgPort};Username={pgUserId};Password={pgPassword};Database={pgDatabase},sslmode=Prefer;Trust Server Certificate=true";
+                    // Parse connection URL to connection string for Npgsql
+                    connUrl = connUrl.Replace("postgres://", string.Empty);
 
-                options.UseNpgsql(connStr);
+                    var pgUserPass = connUrl.Split("@")[0];
+                    var pgHostPortDb = connUrl.Split("@")[1];
+                    var pgHostPort = pgHostPortDb.Split("/")[0];
+
+                    var pgDb = pgHostPortDb.Split("/")[1];
+                    var pgUser = pgUserPass.Split(":")[0];
+                    var pgPass = pgUserPass.Split(":")[1];
+                    var pgHost = pgHostPort.Split(":")[0];
+                    var pgPort = pgHostPort.Split(":")[1];
+
+                    connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}";
+                }
+            options.UseNpgsql(connStr);
             });
-            // options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             services.AddAuthentication(auth => {
