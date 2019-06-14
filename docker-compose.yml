@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+    app:
+        build: .
+        image: votingblock
+        ports:
+          - 6202:91
+    db:
+      image: postgres
+      restart: always
+      ports:
+      - 5439:80

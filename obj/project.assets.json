@@ -2677,7 +2677,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
-      "Npgsql/4.0.0": {
+      "Npgsql/4.0.3": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.5.0",
@@ -2691,13 +2691,13 @@
           "lib/netstandard2.0/Npgsql.dll": {}
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/2.1.0": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/2.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "2.1.0",
-          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.0",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.0",
-          "Npgsql": "4.0.0"
+          "Microsoft.EntityFrameworkCore": "2.1.2",
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.2",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.2",
+          "Npgsql": "4.0.3"
         },
         "compile": {
           "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
@@ -7240,10 +7240,10 @@
         "newtonsoft.json.bson.nuspec"
       ]
     },
-    "Npgsql/4.0.0": {
-      "sha512": "EqZ1S/ZMjDNCZDu9WeWxU0whqPugxSRfLXm7H16G3b2f9YLSn4p86SUgWBhuno9KJST6ssIllxryicN543OcAw==",
+    "Npgsql/4.0.3": {
+      "sha512": "kI2cGnKNexseCVn4a8EWA0gz2pXJOrkV9snlSb4How77a5uOu5oILv1FgBxteI2R0FgKfjXnnJnqmEuyAMNG3g==",
       "type": "package",
-      "path": "npgsql/4.0.0",
+      "path": "npgsql/4.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7256,20 +7256,20 @@
         "lib/netstandard2.0/Npgsql.dll",
         "lib/netstandard2.0/Npgsql.pdb",
         "lib/netstandard2.0/Npgsql.xml",
-        "npgsql.4.0.0.nupkg.sha512",
+        "npgsql.4.0.3.nupkg.sha512",
         "npgsql.nuspec"
       ]
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/2.1.0": {
-      "sha512": "VgZrKEsv4K1sSCeeMo2iHmRrcbEo+yFTQ0qOMXu0GTWrDpDuaW40CWnVO3IimuVNJydhtPTYd74f/+JR4oFq0A==",
+    "Npgsql.EntityFrameworkCore.PostgreSQL/2.1.2": {
+      "sha512": "u1vMq+p6NyyRVcKg+gX2P8YcNKehb4H+JmBJjxC2Z/iZTQEyLiBhLNyuYiYrMmffQVx0AVSsXKU9OGR7vST9Lg==",
       "type": "package",
-      "path": "npgsql.entityframeworkcore.postgresql/2.1.0",
+      "path": "npgsql.entityframeworkcore.postgresql/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
         "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.pdb",
-        "npgsql.entityframeworkcore.postgresql.2.1.0.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.2.1.2.nupkg.sha512",
         "npgsql.entityframeworkcore.postgresql.nuspec"
       ]
     },
@@ -12021,7 +12021,7 @@
       "Microsoft.EntityFrameWorkCore.Design >= 2.1.4",
       "Microsoft.EntityFrameWorkCore.Tools.DotNet >= 2.0.3",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.1.0",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.1.2",
       "Sendgrid >= 9.10.0"
     ]
   },
@@ -12032,11 +12032,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\VotingBlockAPI\\API.csproj",
+      "projectUniqueName": "c:\\Users\\User\\Desktop\\VotingBlockAPI\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\User\\Desktop\\VotingBlockAPI\\API.csproj",
+      "projectPath": "c:\\Users\\User\\Desktop\\VotingBlockAPI\\API.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\VotingBlockAPI\\obj\\",
+      "outputPath": "c:\\Users\\User\\Desktop\\VotingBlockAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12102,7 +12102,7 @@
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
-            "version": "[2.1.0, )"
+            "version": "[2.1.2, )"
           },
           "Sendgrid": {
             "target": "Package",
